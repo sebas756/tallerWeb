@@ -19,14 +19,26 @@ gamesController.getgame = (req, res) => {
 
 gamesController.addgame = (req, res) => {
     const namegame = req.body.name;
-    const countrygame = req.body.country;
-    const league = req.body.league;
+    const minPlayers = req.body.minPlayers;
+    const maxPlayers = req.body.maxPlayers;
+    const avgDuration = req.body.avgDuration;
+    const acqDate = req.body.acqDate;
+    const condition = req.body.condition;
 
-    const game = gamesService.addgame(namegame, countrygame, league)
+    const game = gamesService.addgame(namegame, minPlayers, maxPlayers,avgDuration,acqDate,condition)
     res.status(200).send({
-        msg: "Creación de equipo exitosa.",
+        msg: "Creación de juego exitosa.",
         game: game
     });
+}
+
+gamesController.deletegame = (req, res) => {
+    const idgame = req.params.idgame;
+    const game = gamesService.deletegame(idgame);
+    res.status(200).send({
+        msg: "Eliminación de juego exitosa.",
+        game: game
+    }); 
 }
 
 

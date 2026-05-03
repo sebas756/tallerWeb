@@ -14,18 +14,30 @@ gamesService.getgame = (id) => {
     return null;
 }
 
-gamesService.addgame = (name, country, league) => {
+gamesService.addgame = (name, minPlayers, maxPlayers,avgDuration,acqDate,condition) => {
     const newgame = {
         id: counterID,
         name: name,
-        country: country,
-        league: league
+        minPlayers: minPlayers,
+        maxPlayers: maxPlayers,
+        avgDuration: avgDuration,
+        acqDate: acqDate,
+        condition: condition
     }
     counterID++;
     games.push(newgame);
     return newgame;
 }
 
-gamesService.deletegame = (id) => {}
+gamesService.deletegame = (id) => {
+    for (let game of games) {
+        if (game.id == id) {
+            const index = games.indexOf(game);
+            games.splice(index, 1);
+            return game;
+        }
+    }
+    return null;
+}
 
 export default gamesService;
