@@ -43,10 +43,11 @@ gamesService.deletegame = (id) => {
 gamesService.updategame = (id, updatedGame) => {
     for (let game of games) {
         if (game.id == id) {
+            id = parseInt(id);
             const index = games.indexOf(game);
             games.splice(index, 1);
-            games.push(updatedGame);
-            return updatedGame;
+            games.push({  id, ...updatedGame });
+            return { id,updatedGame };
         }
     }
     return null;
