@@ -41,5 +41,15 @@ gamesController.deletegame = (req, res) => {
     }); 
 }
 
+gamesController.updategame = (req, res) => {
+    const idgame = req.params.idgame;
+    const updatedGame = req.body;
+    const game = gamesService.updategame(idgame, updatedGame);
+    res.status(200).send({
+        msg: "Actualización de juego exitosa.",
+        game: game
+    });
+}
+
 
 export default gamesController;

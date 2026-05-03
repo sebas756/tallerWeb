@@ -40,4 +40,16 @@ gamesService.deletegame = (id) => {
     return null;
 }
 
+gamesService.updategame = (id, updatedGame) => {
+    for (let game of games) {
+        if (game.id == id) {
+            const index = games.indexOf(game);
+            games.splice(index, 1);
+            games.push(updatedGame);
+            return updatedGame;
+        }
+    }
+    return null;
+}
+
 export default gamesService;
