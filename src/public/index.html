@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Juegos de Mesa</title>
+</head>
+<body>
+    <header>
+        <h1>Juegos de Mesa</h1>
+        <p>Consulta, crea, edita y elimina juegos desde el servidor.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="form-title">
+            <h2 id="form-title">Formulario</h2>
+            <form id="game-form">
+                <input type="hidden" id="game-id">
+                <div>
+                    <label for="name">Nombre</label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div>
+                    <label for="minPlayers">Mínimo de jugadores</label>
+                    <input id="minPlayers" name="minPlayers" type="number" min="1" required>
+                </div>
+                <div>
+                    <label for="maxPlayers">Máximo de jugadores</label>
+                    <input id="maxPlayers" name="maxPlayers" type="number" min="1" required>
+                </div>
+                <div>
+                    <label for="avgDuration">Duración promedio</label>
+                    <input id="avgDuration" name="avgDuration" type="number" min="1" required>
+                </div>
+                <div>
+                    <label for="acqDate">Fecha de adquisición</label>
+                    <input id="acqDate" name="acqDate" type="date" required>
+                </div>
+                <div>
+                    <label for="condition">Condición</label>
+                    <input id="condition" name="condition" type="text" required>
+                </div>
+                <button type="submit">Guardar</button>
+                <button type="button" id="clear-form">Limpiar</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="list-title">
+            <h2 id="list-title">Listado</h2>
+            <button type="button" id="reload-games">Actualizar lista</button>
+            <p id="status-message" role="status" aria-live="polite"></p>
+            <ul id="games-list"></ul>
+        </section>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
